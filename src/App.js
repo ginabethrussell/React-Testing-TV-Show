@@ -16,10 +16,15 @@ export default function App() {
   useEffect(() => { 
     fetchShow()
     .then(res => {
-      console.log(res);
-      setShow(res.data);
-      setSeasons(formatSeasons(res.data._embedded.episodes));
+        // console.log(res);
+        setShow(res.data);
+        setSeasons(formatSeasons(res.data._embedded.episodes));
     })
+    .catch(err => {
+      // console.log(err);
+      setShow(false);
+      setSeasons([]);
+    });
   }, []);
 
   const handleSelect = e => {
@@ -27,7 +32,7 @@ export default function App() {
   };
 
   if (!show) {
-    return <h2>Fetching data...</h2>;
+    return <h2 style={{color: 'white'}}>Fetching data...</h2>;
   }
 
   return (
@@ -35,12 +40,14 @@ export default function App() {
       <img className="poster-img" src={show.image.original} alt={show.name} />
       <h1>{show.name}</h1>
       {parse(show.summary)}
-      <Dropdown
+      <div data-testid="dropdown" >
+      <Dropdown  
         options={Object.keys(seasons)}
         onChange={handleSelect}
         value={selectedSeason || "Select a season"}
         placeholder="Select an option"
       />
+      </div>
       <Episodes episodes={episodes} />
     </div>
   );
