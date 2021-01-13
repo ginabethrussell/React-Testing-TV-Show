@@ -1,5 +1,5 @@
 import { formatSeasons } from './formatSeasons';
-
+// test expected outcome of function formatSeasons with given seasonsData
 const seasonsData = [
     {
       id: 553946,

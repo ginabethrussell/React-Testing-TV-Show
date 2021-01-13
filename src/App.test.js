@@ -5,6 +5,7 @@ import App from "./App";
 
 import { fetchShow as mockFetchShow } from "./api/fetchShow";
 jest.mock("./api/fetchShow");
+
 const showData = {
   data: {
     id: 2993,

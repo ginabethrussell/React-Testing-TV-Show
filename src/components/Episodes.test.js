@@ -54,4 +54,4 @@ test("Episodes renders an array of episodes when passed in as state changes from
     expect(firstH3title).toHaveTextContent('Chapter One');
     expect(secondH3title).toBeTruthy();
     expect(thirdH3title).not.toBeNull();
-})
+});
