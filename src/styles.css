@@ -24,7 +24,7 @@ body {
   width: 400px;
 }
 
-.Dropdown-root {
+.Dropdown-root, .new-show {
   text-align: left;
   padding: 8px;
   width: 200px;
